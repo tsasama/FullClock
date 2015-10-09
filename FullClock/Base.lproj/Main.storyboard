@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="6198" systemVersion="14A297b" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6198"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="7706"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -641,17 +641,18 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="FullClock" customModuleProvider="target"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="0.0"/>
+            <point key="canvasLocation" x="47.5" y="1"/>
         </scene>
-        <!--Window Controller - Window-->
+        <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Clock" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                        <windowCollectionBehavior key="collectionBehavior" fullScreenPrimary="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -667,15 +668,62 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="FullClock" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="480" height="240"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bKG-0x-Y7D">
+                                <rect key="frame" x="200" y="56" width="262" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="crv-g5-Xcf"/>
+                                    <constraint firstAttribute="width" constant="258" id="v4V-pN-cvs"/>
+                                </constraints>
+                                <textFieldCell key="cell" sendsActionOnEndEditing="YES" alignment="center" title="00:00" id="edy-7s-Jbc">
+                                    <font key="font" metaFont="system" size="100"/>
+                                    <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" setsMaxLayoutWidthAtFirstLayout="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Fqx-ds-Y2s">
+                                <rect key="frame" x="18" y="82" width="178" height="138"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="174" id="4n5-q4-1ab"/>
+                                    <constraint firstAttribute="height" constant="138" id="hve-Pq-kuW"/>
+                                </constraints>
+                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" alignment="center" id="cVv-C2-RdO">
+                                    <font key="font" metaFont="system" size="38"/>
+                                    <string key="title">H00 0000
+00/00
+(あ) 0限</string>
+                                    <color key="textColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="Fqx-ds-Y2s" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="7tq-xM-0fG"/>
+                            <constraint firstAttribute="trailing" secondItem="bKG-0x-Y7D" secondAttribute="trailing" constant="20" id="Gst-Iv-Qfh"/>
+                            <constraint firstItem="Fqx-ds-Y2s" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="20" id="NUp-3q-dWT"/>
+                            <constraint firstItem="bKG-0x-Y7D" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="56" id="wIv-wQ-msm"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="TimeRightSpace" destination="Gst-Iv-Qfh" id="WlC-1P-DE1"/>
+                        <outlet property="dateHeight" destination="hve-Pq-kuW" id="lSe-cW-124"/>
+                        <outlet property="dateLabel" destination="Fqx-ds-Y2s" id="yLP-fO-fBq"/>
+                        <outlet property="dateLeftSpace" destination="NUp-3q-dWT" id="rTI-GB-AEz"/>
+                        <outlet property="dateTopSpace" destination="7tq-xM-0fG" id="btt-Fs-iyc"/>
+                        <outlet property="dateWidth" destination="4n5-q4-1ab" id="3ua-H8-5i9"/>
+                        <outlet property="timeHeight" destination="crv-g5-Xcf" id="uEG-AN-qHU"/>
+                        <outlet property="timeLabel" destination="bKG-0x-Y7D" id="CL9-vX-2hT"/>
+                        <outlet property="timeTopSpace" destination="wIv-wQ-msm" id="u8J-vF-ifD"/>
+                        <outlet property="timeWidth" destination="v4V-pN-cvs" id="vXB-td-ywl"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="843"/>
         </scene>
     </scenes>
 </document>
